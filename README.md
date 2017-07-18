@@ -1,0 +1,2 @@
+# gostu
+study go
