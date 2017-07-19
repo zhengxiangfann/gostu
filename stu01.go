@@ -121,7 +121,7 @@ func pong(pings <-chan string, pongs chan<- string) {
 	pongs <- msg
 }
 
-func main() {
+func main1() {
 
 	// a := <-done
 	// fmt.Println(a)
