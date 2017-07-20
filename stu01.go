@@ -121,7 +121,7 @@ func pong(pings <-chan string, pongs chan<- string) {
 	pongs <- msg
 }
 
-func main() {
+func demo() {
 
 	// a := <-done
 	// fmt.Println(a)
@@ -178,5 +178,30 @@ func main() {
 	case <-time.After(time.Second * 3):
 		fmt.Println("timeout 2")
 	}
+
+}
+
+func main() {
+
+	// fmt.Println("error")
+
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Printf("catch:%s\r\n", err)
+			// goto LOOP
+		}
+	}()
+
+LOOP:
+	for i := 0; i < 10; i++ {
+		if i == 5 {
+			// panic("aaaa")
+			goto LOOP
+		} else {
+			fmt.Println(i)
+		}
+	}
+
+	fmt.Println("fffffffffffffff")
 
 }
